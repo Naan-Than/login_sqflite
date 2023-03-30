@@ -1,4 +1,5 @@
 import 'package:path/path.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -66,9 +67,14 @@ class DatabaseHelper {
 
   Future<int> login(email, password) async {
     final results = await _db.rawQuery('SELECT * FROM $table WHERE email = "$email" AND password = "$password"');
-    results.first.forEach((key, value) {
-      print(value);
-    });
+    final result = Sqflite.firstIntValue(results) ?? 0;
+    if(result > 0) {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.clear();
+      results.first.forEach((key, value) async {
+        await prefs.setString(key, value.toString());
+      });
+    }
     return Sqflite.firstIntValue(results) ?? 0;
   }
 
