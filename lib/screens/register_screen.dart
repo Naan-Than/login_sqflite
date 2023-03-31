@@ -42,7 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Form(
           key: formKey,
           child: Center(
-            child: Container(
+            child: SizedBox(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               // decoration: const BoxDecoration(
@@ -173,7 +173,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 text: "Sign in with your account",
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    Navigator.pushNamed(context, "/");
+                                    Navigator.pushNamed(context, "/login");
                                   },
                                 style: const TextStyle(
                                     color: Colors.black54,
@@ -204,6 +204,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     };
     final id = await dbHelper.insert(row);
     // Navigate to login
-    Navigator.pushNamed(context, "/");
+    Navigator.pushNamed(context, "/login");
   }
 }

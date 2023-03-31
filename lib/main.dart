@@ -14,14 +14,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
       initialRoute: '/',
     routes: {
-      '/': (context) => const LoginScreen(),
-      '/register': (context) => const RegisterScreen(),
+      '/': (context) => const RegisterScreen(),
+      '/login': (context) => const LoginScreen(),
       '/home': (context) => const HomeScreen(),
 
     }

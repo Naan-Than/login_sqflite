@@ -47,10 +47,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const SizedBox(height: 58,),
                   Padding(
-                    padding: EdgeInsets.only(top: 28.0),
+                    padding: const EdgeInsets.only(top: 28.0),
                     child: Text(
                       Utility.signInText,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
                           color: Colors.purple),
@@ -140,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     text: "Register a new account",
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
-                                        Navigator.pushNamed(context, "/register");
+                                        Navigator.pushNamed(context, "/");
                                       },
                                     style: const TextStyle(color: Colors.grey, fontSize: 16,fontWeight: FontWeight.bold),
                                   ),
