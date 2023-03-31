@@ -10,6 +10,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late String name;
+  late String email;
+  late String mobile;
+  late String address;
 
   @override
   void initState() {
@@ -23,6 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       name = prefs.getString("name")!;
+      email = prefs.getString("email")!;
+      mobile = prefs.getString("mobile")!;
+      address = prefs.getString("address")!;
     });
      }
   @override
@@ -30,12 +36,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("data"),
-        backgroundColor: Colors.purpleAccent,
+        title: const Text("Profile",style: TextStyle(color: Colors.white,fontSize: 18),),
+        backgroundColor: Colors.purple,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(name),
+          Text(email),
+          Text(mobile),
+          Text(address),
+
         ],
       ),
     );
