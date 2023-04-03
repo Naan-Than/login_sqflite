@@ -10,11 +10,13 @@ class Utility {
   static String newAccountText = "New Account";
   static String signUpText = "Sign Up";
   static String signInText = "Sign In";
+  static String welcomeText = "Welcome";
 
   static customTextField(name, icon, input, hint, controller, formValidator,
-      {isPassword = false, maxLine = 1}) {
+      {isPassword = false, maxLine = 1, mixLine = 1, enable = true}) {
     return TextFormField(
       keyboardType: input,
+      enabled: enable,
       obscureText: isPassword,
       controller: controller,
       validator: formValidator,
